@@ -1,0 +1,27 @@
+{
+    "_id": {
+      "$oid": "65177f76b1901bcd67b448d9"
+    },
+    "movie_id": 13,
+    "keyword_list": [
+      "vietnam veteran",
+      "hippie",
+      "mentally disabled",
+      "running",
+      "based on novel",
+      "vietnam",
+      "vietnam war",
+      "friendship",
+      "love",
+      "family relationships",
+      "bully",
+      "mother son relationship",
+      "military",
+      "hugging",
+      "shrimping",
+      "wounded soldier",
+      "flashback",
+      "park bench",
+      "amputee"
+    ]
+  }

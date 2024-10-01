@@ -1,0 +1,51 @@
+.sign__group--checkbox {
+    width: 100%;
+    text-align: left;
+}
+.sign__group--checkbox label::selection {
+    background: transparent;
+    color: #fff;
+}
+.sign__group--checkbox input:not(:checked), .sign__group--checkbox input:checked {
+    position: absolute;
+    left: -9999px;
+}
+.sign__group--checkbox input:not(:checked) + label, .sign__group--checkbox input:checked + label {
+    font-size: 14px;
+    vertical-align: center;
+    color: #fff;
+    font-weight: normal;
+    position: relative;
+    cursor: pointer;
+    padding-left: 37px;
+    line-height: 22px;
+    margin: 0;
+}
+.sign__group--checkbox input:not(:checked) + label:before, .sign__group--checkbox input:checked + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 22px;
+    height: 22px;
+    background-color: #222028;
+    border-radius: 6px;
+}
+.sign__group--checkbox input:not(:checked) + label:after {
+    opacity: 0;
+    transform: scale(0);
+}
+.sign__group--checkbox input:not(:checked) + label:after, .sign__group--checkbox input:checked + label:after {
+    font-family: 'Ionicons';
+    content: '\f3ff';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 22px;
+    height: 22px;
+    font-size: 24px;
+    line-height: 22px;
+    text-align: center;
+    transition: 0.4s;
+    color: #f9ab00;
+}

@@ -1,0 +1,42 @@
+.search-menu li {
+  @apply flex hover:bg-gray-700 px-4 py-3;
+}
+.search-menu li a {
+  @apply flex-1;
+}
+.search-menu li span {
+  @apply bg-gray-100 text-black font-light px-2 rounded-md;
+}
+.selected {
+  @apply bg-gray-700;
+}
+ul.react-paginate {
+  @apply flex flex-row justify-center items-center space-x-3;
+}
+ul.react-paginate li {
+  border-radius: 6px;
+}
+ul.react-paginate li a {
+  border-radius: 6px;
+  padding: 0.1rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+ul.react-paginate li.previous a,
+ul.react-paginate li.next a,
+ul.react-paginate li.break a {
+  border-color: transparent;
+}
+ul.react-paginate li.selected a {
+  border-color: transparent;
+  color: white;
+  font-weight: 400;
+  min-width: 32px;
+}
+ul.react-paginate li.disabled a {
+  color: grey;
+}
+ul.react-paginate li.disable,
+ul.react-paginate li.disabled a {
+  cursor: default;
+}

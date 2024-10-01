@@ -1,0 +1,42 @@
+
+    {
+        "_id": {
+          "$oid": "6517875fb1901bcd67b4803b"
+        },
+        "movie_id": 13,
+        "crew": [
+          "{'credit_id': '52fe420ec3a36847f800072d', 'department': 'Directing', 'gender': 2, 'id': 24, 'job': 'Director', 'name': 'Robert Zemeckis', 'profile_path': '/isCuZ9PWIOyXzdf3ihodXzjIumL.jpg'}",
+          "{'credit_id': '52fe420ec3a36847f800073f', 'department': 'Production', 'gender': 1, 'id': 28, 'job': 'Producer', 'name': 'Wendy Finerman', 'profile_path': None}",
+          "{'credit_id': '52fe420ec3a36847f8000745', 'department': 'Production', 'gender': 2, 'id': 29, 'job': 'Producer', 'name': 'Steve Tisch', 'profile_path': None}",
+          "{'credit_id': '52fe420ec3a36847f800074b', 'department': 'Production', 'gender': 2, 'id': 30, 'job': 'Producer', 'name': 'Steve Starkey', 'profile_path': None}",
+          "{'credit_id': '52fe420ec3a36847f8000765', 'department': 'Camera', 'gender': 2, 'id': 36, 'job': 'Director of Photography', 'name': 'Don Burgess', 'profile_path': None}",
+          "{'credit_id': '52fe420ec3a36847f800076b', 'department': 'Sound', 'gender': 2, 'id': 37, 'job': 'Original Music Composer', 'name': 'Alan Silvestri', 'profile_path': '/chEsfnDEtRmv1bfOaNAoVEzhCc6.jpg'}",
+          "{'credit_id': '52fe420ec3a36847f8000771', 'department': 'Editing', 'gender': 2, 'id': 38, 'job': 'Editor', 'name': 'Arthur Schmidt', 'profile_path': None}",
+          "{'credit_id': '52fe420ec3a36847f8000781', 'department': 'Writing', 'gender': 2, 'id': 27, 'job': 'Screenplay', 'name': 'Eric Roth', 'profile_path': '/e73ADDpR3vT1Bwa0Q0oRp5RQWTb.jpg'}",
+          "{'credit_id': '5690606ac3a3686b5200066a', 'department': 'Writing', 'gender': 2, 'id': 26, 'job': 'Novel', 'name': 'Winston Groom', 'profile_path': None}",
+          "{'credit_id': '532ec355c3a3685fcb003d7a', 'department': 'Production', 'gender': 1, 'id': 2242, 'job': 'Casting', 'name': 'Ellen Lewis', 'profile_path': None}",
+          "{'credit_id': '55850aa6c3a36850300022a7', 'department': 'Costume & Make-Up', 'gender': 1, 'id': 498, 'job': 'Costume Design', 'name': 'Joanna Johnston', 'profile_path': None}",
+          "{'credit_id': '5517cc68925141150000071c', 'department': 'Art', 'gender': 2, 'id': 496, 'job': 'Production Design', 'name': 'Rick Carter', 'profile_path': '/nIkkWGDlvAuZUAmVQZOIKew9kxw.jpg'}",
+          "{'credit_id': '5517cc80c3a3686302003317', 'department': 'Art', 'gender': 1, 'id': 23972, 'job': 'Art Direction', 'name': 'Leslie McDonald', 'profile_path': None}",
+          "{'credit_id': '5517cca39251412cb9001b85', 'department': 'Art', 'gender': 2, 'id': 8679, 'job': 'Art Direction', 'name': 'William James Teegarden', 'profile_path': None}",
+          "{'credit_id': '5517ccb99251416efe0037c8', 'department': 'Art', 'gender': 1, 'id': 555, 'job': 'Set Decoration', 'name': 'Nancy Haigh', 'profile_path': None}",
+          "{'credit_id': '5517cd11c3a36862f6003256', 'department': 'Costume & Make-Up', 'gender': 0, 'id': 1358074, 'job': 'Hairstylist', 'name': 'Hazel Catmull', 'profile_path': None}",
+          "{'credit_id': '5517cd379251416efe0037dd', 'department': 'Costume & Make-Up', 'gender': 0, 'id': 1446985, 'job': 'Hairstylist', 'name': 'William A. Kohout', 'profile_path': None}",
+          "{'credit_id': '5517cd579251412b6d001bcc', 'department': 'Costume & Make-Up', 'gender': 0, 'id': 1446986, 'job': 'Hairstylist', 'name': 'Susan Schuler-Page', 'profile_path': None}",
+          "{'credit_id': '5517cd76c3a36862f9003472', 'department': 'Costume & Make-Up', 'gender': 0, 'id': 74765, 'job': 'Makeup Artist', 'name': 'Jay Cannistraci', 'profile_path': None}",
+          "{'credit_id': '5517cd8f9251411500000749', 'department': 'Costume & Make-Up', 'gender': 0, 'id': 26986, 'job': 'Makeup Artist', 'name': 'Rick Sharp', 'profile_path': None}",
+          "{'credit_id': '5517cdfd9251412cb9001bd0', 'department': 'Art', 'gender': 0, 'id': 1446987, 'job': 'Art Department Coordinator', 'name': 'Kacy Magedman', 'profile_path': None}",
+          "{'credit_id': '5517ce1a9251416efe003806', 'department': 'Art', 'gender': 0, 'id': 1446988, 'job': 'Art Department Coordinator', 'name': 'Wendy Richardson', 'profile_path': None}",
+          "{'credit_id': '5517ce5b9251411500000771', 'department': 'Art', 'gender': 2, 'id': 11412, 'job': 'Assistant Art Director', 'name': 'Steve Arnold', 'profile_path': None}",
+          "{'credit_id': '5517ce71c3a36862fc003287', 'department': 'Art', 'gender': 1, 'id': 1446989, 'job': 'Assistant Art Director', 'name': 'Linda Berger', 'profile_path': None}",
+          "{'credit_id': '5517cec1c3a3686692001b78', 'department': 'Art', 'gender': 2, 'id': 8794, 'job': 'Assistant Art Director', 'name': 'Tony Fanning', 'profile_path': None}",
+          "{'credit_id': '5517cf23c3a36862fc0032ab', 'department': 'Art', 'gender': 0, 'id': 1341851, 'job': 'Construction Coordinator', 'name': 'Jeff Passanante', 'profile_path': None}",
+          "{'credit_id': '5517cf4fc3a36862ff00347c', 'department': 'Crew', 'gender': 2, 'id': 22486, 'job': 'Property Master', 'name': 'Robin L. Miller', 'profile_path': None}",
+          "{'credit_id': '5517cfc19251412b6d001c47', 'department': 'Crew', 'gender': 0, 'id': 134930, 'job': 'Property Master', 'name': 'Stephen I. Erdberg', 'profile_path': None}",
+          "{'credit_id': '5517cffd9251412cb9001c36', 'department': 'Art', 'gender': 0, 'id': 1446990, 'job': 'Greensman', 'name': 'Daniel J. Gillooly', 'profile_path': None}",
+          "{'credit_id': '5517d0129251416efe00385b', 'department': 'Art', 'gender': 0, 'id': 1446991, 'job': 'Greensman', 'name': 'Hugo Herrera', 'profile_path': None}",
+          "{'credit_id': '5517d02dc3a36862f90034e1', 'department': 'Art', 'gender': 0, 'id': 37832, 'job': 'Greensman', 'name': 'Kevin Mangan', 'profile_path': None}",
+          "{'credit_id': '5517d0459251416f000036ef', 'department': 'Art', 'gender': 0, 'id': 1446992, 'job': 'Greensman', 'name': 'Dan Ondrejko', 'profile_path': None}",
+          "{'credit_id': '5517d0669251412b6d001c61', 'department': 'Art', 'gender': 0, 'id': 1446993, 'job': 'Leadman', 'name': 'Paige Augustine', 'profile_path': None}"
+        ]
+      }

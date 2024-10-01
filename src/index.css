@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600');
+
+@tailwind base;
+@layer base {
+  html {
+    @apply font-source_sans;
+  }
+}
+@tailwind components;
+@tailwind utilities;
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    margin: 0px 10px;
+    border-radius: 20px;
+    background: #1a191f;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #a7a7a7;
+    border-radius: 20px;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #a7a7a7;
+  }
+  .text-area::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .text-area::-webkit-scrollbar-track {
+    margin: 0px 10px;
+    border-radius: 20px;
+  }
+
+  .text-area::-webkit-scrollbar-thumb {
+    background: #a7a7a7;
+    border-radius: 20px;
+  }
+
+  .text-area::-webkit-scrollbar-thumb:hover {
+    background: #a7a7a7;
+  }
+}
+
+@font-face {
+  font-family: 'Ionicons';
+  src: url(assets/fonts/ionicons.woff) format('woff');
+}
+
+* {
+  box-sizing: border-box;
+}
+.react-tabs__tab-list {
+  @apply mb-2 p-0;
+}
+.empty-icons {
+  display: flex !important;
+}
+.filled-icons {
+  display: -webkit-inline-box !important;
+}
+.react-tabs__tab {
+  @apply inline-block relative list-none px-4 py-2 cursor-pointer -bottom-px uppercase text-sm;
+}
+.discussion-part a {
+  @apply text-primary hover:underline;
+}
+.discussion-part h1 {
+  @apply text-2xl;
+}
+.discussion-part h2 {
+  @apply text-xl;
+}
+.discussion-part h3 {
+  @apply text-lg;
+}
+.discussion-part p {
+  @apply text-sm;
+}
+.quill a {
+  @apply text-primary hover:underline;
+}
+.ql-toolbar.ql-snow,
+.ql-editor {
+  @apply border-[#CFCFCF];
+}
+.ql-snow .ql-stroke {
+  fill: none;
+  stroke: rgb(207, 207, 207);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+.ql-snow .ql-stroke-miter {
+  fill: none;
+  stroke: rgb(207, 207, 207);
+  stroke-miterlimit: 10;
+  stroke-width: 2;
+}
+.ql-snow .ql-fill,
+.ql-snow .ql-stroke.ql-fill {
+  fill: rgb(207, 207, 207);
+}
+.ql-snow .ql-picker {
+  color: rgb(207, 207, 207);
+  display: inline-block;
+  float: left;
+  font-size: 14px;
+  font-weight: 500;
+  height: 24px;
+  position: relative;
+  vertical-align: middle;
+}
+.ql-container.ql-snow {
+  @apply border-[#CFCFCF];
+}
+
+.quill {
+  @apply h-80 my-8;
+}
+.react-tabs__tab--selected {
+  @apply border-b-3 border-primary text-primary;
+}
+
+input {
+  @apply bg-textbox px-5 py-3 rounded-md text-white items-start;
+}
+input:focus {
+  @apply outline-none border-2 border-primary;
+}
+.text-area {
+  @apply bg-textbox px-5 py-3 rounded-md text-white items-start;
+}
+.text-area:focus {
+  @apply outline-none border-2 border-primary;
+}
+.primary-btn {
+  @apply flex justify-center items-center rounded-md border-primary border-2 text-white text-sm uppercase transition duration-300 ease-out;
+}
+.primary-btn:hover {
+  @apply bg-primary/10;
+}
+.triangle {
+  position: absolute;
+  top: -8px; /* Adjust as needed */
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-left: 0.5rem solid transparent; /* Adjust the size of the triangle */
+  border-right: 0.5rem solid transparent; /* Adjust the size of the triangle */
+  border-bottom: 0.5rem solid #374151; /* Adjust the size and color of the triangle */
+  transform: translateX(-50%);
+}
