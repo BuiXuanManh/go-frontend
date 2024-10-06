@@ -1,8 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import MovieCard from 'src/components/MovieCard';
 import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import { useRef, useState } from 'react';
+
+import { useState } from 'react';
 import { buildImageUrl, mapJsonToMovie } from 'src/helpers/utils';
 import { useQuery } from 'react-query';
 import { getMoviePopular } from 'src/helpers/api';
@@ -13,7 +13,7 @@ export default function HomePage() {
   const [backdropURL, setBackdropURL] = useState('/src/assets/images/backdrop.png');
   const [page, setPage] = useState(1);
 
-  let sliderRef = useRef(null);
+  // let sliderRef = useRef(null);
   const onError = () => {
     setBackdropURL('/src/assets/images/backdrop.png');
   };
@@ -25,28 +25,30 @@ export default function HomePage() {
   if (isLoading) return <div className='text-black'>Loading...</div>;
 
   const settings = {
-    dots: false,
-    arrows: false,
+    dots: true,
+    arrows: true,
     infinite: true,
-    draggable: false,
-    speed: 500,
+    draggable: true,
+    // speed: 500,
     slidesToShow: 5,
     slidesToScroll: 1,
+    autoplay: true,
+    autoPlaySpeed: 1000,
     afterChange: (current: number) => {
       setBackdropURL(buildImageUrl(data[current]?.backdrop_path, 'original'));
     }
   };
-  const onClickNext = () => {
-    sliderRef.slickNext();
-  };
-  const onClickPrev = () => {
-    sliderRef.slickPrev();
-  };
+  // const onClickNext = () => {
+  //   sliderRef.slickNext();
+  // };
+  // const onClickPrev = () => {
+  //   sliderRef.slickPrev();
+  // };
 
   return (
     <div className='w-auto  bg-background '>
-      <div className='relative md:h-96 lg:h-[40rem] flex justify-center items-center lg:px-24 '>
-        <div className='md:h-96 lg:h-[40rem] w-full overflow-hidden absolute left-0 top-0 '>
+      <div className='relative flex justify-center items-center lg:px-24 '>
+        <div className='w-full overflow-hidden absolute left-0 top-0 '>
           <img
             loading='lazy'
             src={backdropURL}
@@ -57,7 +59,7 @@ export default function HomePage() {
         <div className='relative flex w-full flex-col justify-between'>
           <div className='flex'>
             <h1 className='text-4xl uppercase'>Trending</h1>
-            <button
+            {/* <button
               className='ml-auto border-none mr-4 hover:bg-transparent w-fit group/left'
               onClick={onClickPrev}
             >
@@ -79,7 +81,7 @@ export default function HomePage() {
             </button>
             <button
               className='border-none hover:bg-transparent w-fit group/right'
-              onClick={onClickNext}
+              // onClick={onClickNext}
             >
               <svg
                 className='w-6 h-6  text-gray-400 group-hover/right:text-white transition'
@@ -96,16 +98,16 @@ export default function HomePage() {
                   d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3'
                 ></path>
               </svg>
-            </button>
+            </button> */}
           </div>
           <div className='mt-12'>
             <Slider
-              ref={slider => {
-                sliderRef = slider;
-              }}
+              // ref={slider => {
+              //   sliderRef = slider;
+              // }}
               {...settings}
             >
-              {data?.map((movie, index) => {
+              {data?.map((movie: any, index: any) => {
                 const card = mapJsonToMovie(movie);
                 return (
                   <MovieCard

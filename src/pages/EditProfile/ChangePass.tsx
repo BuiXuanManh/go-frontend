@@ -31,8 +31,8 @@ function ChangePass() {
       navigate('/');
       toast.success(PASSWORD_CHANGED_SUCCESSFULLY);
     },
-    onError(error, variables, context) {
-      setPasswordError(error.response.data.message);
+    onError() {
+      // setPasswordError(error?.response?.data?.message);
       toast.error(CHANGE_PASSWORD_FAILED);
     }
   });
@@ -55,7 +55,7 @@ function ChangePass() {
       return;
     }
     changePass({
-      userId: userId,
+      userId: userId || 0,
       oldPassword,
       newPassword
     });

@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import Checkbox from 'src/components/Checkbox';
 import '../Login/Login.css';
-import logo from 'src/assets/images/Logo.png';
 import { Link } from 'react-router-dom';
-
+// import logo from '../../assets/images/Logo.png';
 export default function ForgotPass() {
   const [isChecked, setIsChecked] = useState(false);
 
@@ -14,7 +13,7 @@ export default function ForgotPass() {
   return (
     <div id='container'>
       <form id='forgot-password' className='form-container'>
-        <img src={logo} alt='Logo'></img>
+        <img src={'../../assets/images/Logo.png'} alt='Logo'></img>
         <input type='text' placeholder='Email'></input>
         <div className='checkbox-container mt-2'>
           <Checkbox checked={isChecked} onChange={handleCheckboxChange}>

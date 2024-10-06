@@ -4,5 +4,6 @@ interface Cast {
   character: string;
   profilePath: string;
   order: number;
+  gender: string;
 }
 export default Cast;

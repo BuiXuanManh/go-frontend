@@ -11,7 +11,7 @@ const Scroller: React.FC<ScrollerProps> = ({ children, viewMore, viewMoreLink })
   const [scrolled, setScrolled] = useState(false);
   const [showViewMore, setShowViewMore] = useState(viewMore);
 
-  const handleScroll = e => {
+  const handleScroll = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.scrollLeft >= 20) {
       setScrolled(true);
     } else {
@@ -34,7 +34,7 @@ const Scroller: React.FC<ScrollerProps> = ({ children, viewMore, viewMoreLink })
       <ol
         id='scroller-container'
         className={'flex space-x-4 pb-5 scrollbar overflow-x-scroll'}
-        onScroll={handleScroll}
+        onScroll={() => handleScroll}
       >
         {children?.map((child, index) => <li key={index}>{child}</li>)}
         {showViewMore && (

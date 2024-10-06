@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useQuery } from 'react-query';
 import { getUserRating } from 'src/helpers/api';
 
@@ -13,7 +14,7 @@ const useUserRating = (data: {
     refetchOnWindowFocus: false,
     select: data => {
       console.log('data', data);
-      return data.map(rating => {
+      return data.map((rating: any) => {
         return {
           rating: rating.rating,
           movie_id: rating.movie_id,

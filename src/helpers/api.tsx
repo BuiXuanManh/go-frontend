@@ -1,7 +1,8 @@
-import axios, { AxiosResponse } from 'axios';
+/* eslint-disable import/named */
+import axios from 'axios';
 import Rating from 'src/types/Rating';
 import { toast } from 'react-toastify';
-import { PaginatedMovieResponse, User } from './type';
+import { User } from './type';
 import {
   TokenRefreshRequest,
   IAuthTokens,
@@ -84,9 +85,7 @@ export const login = async (Username: string, Password: string) => {
 };
 export const logout = () => clearAuthTokens();
 
-export const getMoviesByPage = async (
-  page: number
-): Promise<AxiosResponse<PaginatedMovieResponse>> => {
+export const getMoviesByPage = async (page: number) => {
   const response = await instance.get(`/movie/get/page/${page}`);
   return response.data;
 };
@@ -217,7 +216,7 @@ export const getCurrentUser = async () => {
   return data;
 };
 
-export const searchMovie = async (query: string, page: string) => {
+export const searchMovie = async (query: string, page: number) => {
   const { data } = await instance.get(`movie/search/${query}/${page}`);
   return data;
 };

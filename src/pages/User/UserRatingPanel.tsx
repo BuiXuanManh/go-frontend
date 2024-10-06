@@ -1,8 +1,9 @@
+/* eslint-disable import/named */
 import React from 'react';
 import { AxisOptions, Chart } from 'react-charts';
-import { useQueries, useQuery } from 'react-query';
-import { getMovieDetail, getUserRating } from 'src/helpers/api';
-import MovieList from './MovieList';
+// import { useQueries } from 'react-query';
+// import { getMovieDetail } from 'src/helpers/api';
+// import MovieList from './MovieList';
 import { RatingRawData } from './UserOverView';
 
 export type Series = {
@@ -48,7 +49,7 @@ function countRatings(ratings: RatingRawData[]): RatingData[] {
   return result;
 }
 
-const UserRatingPanel = ({ ratingData, favoriteList }: UserRatingPanelProps) => {
+const UserRatingPanel = ({ ratingData }: UserRatingPanelProps) => {
   const primaryAxis = React.useMemo(
     (): AxisOptions<RatingData> => ({
       position: 'bottom',
@@ -75,18 +76,18 @@ const UserRatingPanel = ({ ratingData, favoriteList }: UserRatingPanelProps) => 
     }
   ];
   console.log('data', data);
-  const movieIds = ratingData?.map(rating => rating.movie_id) ?? [];
+  // const movieIds = ratingData?.map(rating => rating.movie_id) ?? [];
 
-  const movieQueries = useQueries(
-    movieIds.map(movieId => {
-      return {
-        queryKey: ['movie', movieId],
-        queryFn: () => getMovieDetail(movieId.toString())
-      };
-    })
-  );
+  // const movieQueries = useQueries(
+  //   movieIds.map(movieId => {
+  //     return {
+  //       queryKey: ['movie', movieId],
+  //       queryFn: () => getMovieDetail(movieId.toString())
+  //     };
+  //   })
+  // );
 
-  const isLoading = movieQueries.some(result => result.isLoading);
+  // const isLoading = movieQueries.some(result => result.isLoading);
 
   console.log('years', ratingData);
 

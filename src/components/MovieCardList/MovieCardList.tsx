@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React from 'react';
 import { useQuery } from 'react-query';
 import { getMoviesByPage } from 'src/helpers/api';
 import LoadingIndicator from '../LoadingIndicator';

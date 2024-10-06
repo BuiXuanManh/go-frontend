@@ -8,7 +8,7 @@ interface Movie {
   certification: string;
   rating: number;
   genres: string[];
-  runtime: number;
+  runtime: string;
   tagline?: string;
   overview: string;
   posterPath: string;

@@ -6,7 +6,7 @@ interface SideBarProps {
   onClose: () => void;
 }
 
-const SideBar: React.FC<SideBarProps> = ({ isOpen, onClose }) => {
+const SideBar: React.FC<SideBarProps> = ({ isOpen }) => {
   return (
     <div
       className={`fixed top-16 lg:hidden w-[18.75rem] bg-background p-5 z-20 border-primary border-t-4 transition ease-in-out duration-300 h-[calc(100%-3.5rem)] ${

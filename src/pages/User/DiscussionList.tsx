@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { useQuery } from 'react-query';
 import DiscussionSubject from 'src/components/DiscussionSubject/DiscussionSubject';
@@ -30,7 +31,7 @@ const DiscussionList: React.FC<DiscussionListProps> = ({ nullListMessage, title,
         <>
           {!discussionList && <p>{nullListMessage}</p>}
           {discussionList &&
-            discussionList.map((discussion, index) => {
+            discussionList.map((discussion: any, index: any) => {
               return (
                 <div
                   id={`${id}-card-${index}`}

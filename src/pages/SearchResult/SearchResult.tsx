@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import MovieCardSearch from 'src/components/MovieCardSearch/MovieCardSearch';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
-import { buildImageUrl, mapJsonToMovie } from 'src/helpers/utils';
+import { buildImageUrl } from 'src/helpers/utils';
 import { formatDateToDDMMYYYY } from './../../helpers/utils';
 import Movie from 'src/types/Movie';
 import './search.css';
@@ -26,7 +26,7 @@ const SearchResult = () => {
   if (!page) {
     page = '1';
   }
-  const { data, isLoading } = useSearchMovie(query, parseInt(page));
+  const { data, isLoading } = useSearchMovie(query || '', parseInt(page));
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [page]);

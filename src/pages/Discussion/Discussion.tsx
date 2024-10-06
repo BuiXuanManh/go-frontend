@@ -1,15 +1,15 @@
-import React from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import ReactPaginate from 'react-paginate';
 import { useQuery } from 'react-query';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import BreadCrumbs from 'src/components/BreadCrumbs/BreadCrumbs';
 import DiscussionSubject from 'src/components/DiscussionSubject/DiscussionSubject';
 import LoadingIndicator from 'src/components/LoadingIndicator';
 import Table from 'src/components/Table';
 import { options } from 'src/constant/time-option';
 import { getDiscussionByPage } from 'src/helpers/api';
-import { buildImageUrl } from 'src/helpers/utils';
-import useMovieDetail from 'src/hooks/useMovieDetail';
+// import { buildImageUrl } from 'src/helpers/utils';
+// import useMovieDetail from 'src/hooks/useMovieDetail';
 
 function Discussion() {
   const navigate = useNavigate();
@@ -38,40 +38,44 @@ function Discussion() {
     { title: 'Last Reply', dataIndex: 'last_reply' }
   ];
 
-  const { data, isLoading } = useQuery(['discussionPage', page], () => getDiscussionByPage(page), {
-    select(data) {
-      return {
-        ...data,
-        discussions: data?.discussions.map((discussion: any) => {
-          return {
-            _id: discussion._id,
-            movie_id: discussion.movie_id,
-            subject: (
-              <DiscussionSubject
-                movie_id={discussion.movie_id}
-                subject={discussion.subject}
-                user_id={discussion.discussion_part[0].user_id}
-                profile_path={discussion.discussion_part[0].profile_path}
-                discussion_id={discussion._id}
-              />
-            ),
-            status: discussion.status ? 'Open' : 'Closed',
-            replies: discussion.discussion_part.length - 1,
-            last_reply: (
-              <div>
-                <p>
-                  {new Date(
-                    discussion.discussion_part[discussion.discussion_part.length - 1].timestamp
-                  ).toLocaleString('en-US', options)}
-                </p>
-                <p>by {discussion.discussion_part[discussion.discussion_part.length - 1].name}</p>
-              </div>
-            )
-          };
-        })
-      };
+  const { data, isLoading } = useQuery(
+    ['discussionPage', page],
+    () => getDiscussionByPage(Number(page)),
+    {
+      select(data) {
+        return {
+          ...data,
+          discussions: data?.discussions.map((discussion: any) => {
+            return {
+              _id: discussion._id,
+              movie_id: discussion.movie_id,
+              subject: (
+                <DiscussionSubject
+                  movie_id={discussion.movie_id}
+                  subject={discussion.subject}
+                  user_id={discussion.discussion_part[0].user_id}
+                  profile_path={discussion.discussion_part[0].profile_path}
+                  discussion_id={discussion._id}
+                />
+              ),
+              status: discussion.status ? 'Open' : 'Closed',
+              replies: discussion.discussion_part.length - 1,
+              last_reply: (
+                <div>
+                  <p>
+                    {new Date(
+                      discussion.discussion_part[discussion.discussion_part.length - 1].timestamp
+                    ).toLocaleString('en-US', options)}
+                  </p>
+                  <p>by {discussion.discussion_part[discussion.discussion_part.length - 1].name}</p>
+                </div>
+              )
+            };
+          })
+        };
+      }
     }
-  });
+  );
 
   console.log(data);
 

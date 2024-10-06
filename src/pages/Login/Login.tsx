@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react';
-import Checkbox from 'src/components/Checkbox';
+// import Checkbox from 'src/components/Checkbox';
 import './Login.css';
-import logo from 'src/assets/images/Logo.png';
+// import logo from 'src/assets/images/Logo.png';
 import SocialSign from 'src/components/SocialSign';
 import { Link } from 'react-router-dom';
 import { useSignIn } from 'src/hooks/useLogin';
@@ -13,7 +14,7 @@ import {
   LOGIN_SUCCESSFULLY,
   MANDATORY_FIELDS
 } from 'src/constant/error';
-import RatingStar from 'src/components/RatingStar';
+// import RatingStar from 'src/components/RatingStar';
 
 export default function Login() {
   const [username, setUsername] = useState(''); //4nh3k
@@ -35,13 +36,13 @@ export default function Login() {
     testSignIn(
       { Username: username, Password: password },
       {
-        onSuccess: data => {
+        onSuccess: () => {
           toast.success(LOGIN_SUCCESSFULLY, {
             toastId: 'loginSuccessfully'
           });
         },
-        onError: error => {
-          if (error.response.status === 401) {
+        onError: (error: any) => {
+          if (error?.response?.status === 401) {
             setUsernameError(INCORRECT_CREDENTIALS);
           }
           toast.error(LOGIN_FAILED, {
@@ -55,7 +56,7 @@ export default function Login() {
   return (
     <div id='container'>
       <form id='login' className='form-container' onSubmit={handleSubmit}>
-        <img src={logo} alt='Logo'></img>
+        <img src={'src/assets/images/Logo.png'} alt='Logo'></img>
         <Input
           id='usernameInput'
           type='text'

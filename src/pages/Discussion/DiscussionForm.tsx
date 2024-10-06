@@ -3,7 +3,6 @@ import useUserId from 'src/hooks/useUserId';
 import ReactQuill from 'react-quill';
 import useDiscussion from 'src/hooks/useDiscussion';
 import LoadingIndicator from 'src/components/LoadingIndicator';
-import { toast } from 'react-toastify';
 
 interface DiscussionFormProps {
   movieId: string;
@@ -20,7 +19,7 @@ function DiscussionForm({ movieId, movieTitle, setIsNewDiscussion }: DiscussionF
   };
   const { mutate: addDiscussion, isLoading: isAddDiscussion } = useDiscussion(
     movieId,
-    userId,
+    userId || 0,
     addNewDiscussionSuccess
   );
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {

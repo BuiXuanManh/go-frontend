@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import Cast from 'src/types/Cast';
 import Crew from 'src/types/Crew';
 import Movie from 'src/types/Movie';
 
@@ -22,7 +24,7 @@ export function mapJsonToCrews(jsonData: any): Crew[] {
 }
 
 export function mapJsonToCasts(jsonData: any): Cast[] {
-  return jsonData.slice(0, 9).map(cast => {
+  return jsonData.slice(0, 9).map((cast: string) => {
     const castData = JSON.parse(cast);
     return {
       id: castData.id,
@@ -39,11 +41,13 @@ export function mapJsonToMovie(jsonData: any): Movie {
   return {
     id: jsonData?.id ?? null,
     title: jsonData?.title ?? null,
-    releaseDate: jsonData?.release_date ? new Date(jsonData.release_date) : null,
+    releaseDate: jsonData?.release_date ? new Date(jsonData.release_date) : new Date(),
     rating: jsonData?.vote_average ?? null,
-    genres: jsonData?.genres?.map(genre => genre.name) ?? [],
+    genres: jsonData?.genres?.map((genre: { name: any }) => genre.name) ?? [],
     productionCountries:
-      jsonData?.production_countries?.map(country => country.iso_3166_1).join(', ') ?? null,
+      jsonData?.production_countries
+        ?.map((country: { iso_3166_1: any }) => country.iso_3166_1)
+        .join(', ') ?? null,
     posterPath: jsonData?.poster_path ?? null,
     backdropPath: jsonData?.backdrop_path ?? null,
     status: jsonData?.status ?? null,
@@ -51,9 +55,10 @@ export function mapJsonToMovie(jsonData: any): Movie {
     budget: jsonData?.budget ?? null,
     revenue: jsonData?.revenue ?? null,
     homepage: jsonData?.homepage ?? null,
-    runtime: jsonData?.runtime ? minutesToHourMinuteString(jsonData.runtime) : null,
+    runtime: jsonData?.runtime ? minutesToHourMinuteString(jsonData.runtime) : '',
     tagline: jsonData?.tagline ?? null,
-    overview: jsonData?.overview ?? null
+    overview: jsonData?.overview ?? null,
+    certification: jsonData?.certification ?? null
   };
 }
 export function formatDateToDDMMYYYY(date: Date | null | undefined): string {

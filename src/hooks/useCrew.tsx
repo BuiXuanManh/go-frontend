@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useQuery } from 'react-query';
 import { mapJsonToCrews } from 'src/helpers/utils';
 import { getMovieCrew } from 'src/helpers/api';

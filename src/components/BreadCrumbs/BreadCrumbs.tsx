@@ -1,18 +1,20 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react/prop-types */
 import React from 'react';
 import useBreadcrumbs from 'use-react-router-breadcrumbs';
 import { NavLink } from 'react-router-dom';
 import useMovieDetail from 'src/hooks/useMovieDetail';
-import useDiscussion from 'src/hooks/useDiscussion';
+// import useDiscussion from 'src/hooks/useDiscussion';
 import { useQuery } from 'react-query';
 import { getDiscussion } from 'src/helpers/api';
 
-function BreadCrumbsMovie({ match }) {
+function BreadCrumbsMovie({ match }: { match: any }) {
   const { data: movie, isLoading: isMovieLoading } = useMovieDetail(match.params.movieId);
   if (isMovieLoading) return <span>Movie</span>;
-  return <span>{movie.title}</span>;
+  return <span>{movie?.title}</span>;
 }
 
-function BreadCrumbsDiscussion({ match }) {
+function BreadCrumbsDiscussion({ match }: { match: any }) {
   const { data: discussion, isLoading } = useQuery(['discussion', match.params.discussionId], () =>
     getDiscussion(match.params.discussionId)
   );
@@ -20,7 +22,7 @@ function BreadCrumbsDiscussion({ match }) {
   return <span>{discussion.subject}</span>;
 }
 
-function BreadCrumbsMovieDiscussion({ match }) {
+function BreadCrumbsMovieDiscussion({ match }: { match: any }) {
   const { data: discussion, isLoading } = useQuery(['discussion', match.params.discussionId], () =>
     getDiscussion(match.params.discussionId)
   );

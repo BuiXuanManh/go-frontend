@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { getColor } from 'src/helpers/utils';
-import { Rating } from 'react-simple-star-rating';
+// import { Rating } from 'react-simple-star-rating';
 import { Tooltip } from 'react-tooltip';
 import { deleteMovieRating, getMovieRatingByUser, updateMovieRating } from 'src/helpers/api';
-import useUser from 'src/hooks/useUser';
+// import useUser from 'src/hooks/useUser';
 import { useMutation, useQuery } from 'react-query';
 import LoadingIndicator from '../LoadingIndicator';
 import { useState } from 'react';
@@ -29,7 +29,7 @@ type MovieCardUserProps = {
   removeFrom: RemoveFrom;
 };
 
-type RemoveFrom = 'watchlist-list' | 'favorite-list' | 'rating-list';
+export type RemoveFrom = 'watchlist-list' | 'favorite-list' | 'rating-list' | 'null';
 
 const MovieCardUser = ({
   movieId,
@@ -47,7 +47,7 @@ const MovieCardUser = ({
   const [hasRated, setHasRated] = useState(false);
   const { userId, hasLogin } = useUserId();
 
-  const userQuery = useUser(userId);
+  // const userQuery = useUser(userId);
   const handleAddFavoriteSuccess = () => {
     console.log(movieId);
   };

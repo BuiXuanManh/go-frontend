@@ -1,11 +1,8 @@
-import React from 'react';
-import logo from 'src/assets/images/Logo.png';
-
 export default function Footer() {
   return (
     <footer className='bg-background border-t-1 border-border'>
       <div className='w-full py-4 flex items-center flex-wrap'>
-        <img className='ml-8 w-24 h-4' src={logo} alt='Logo'></img>
+        <img className='ml-8 w-24 h-4' src={'../../assets/images/Logo.png'} alt='Logo'></img>
 
         <span className=' text-white/60 pl-7 text-xs'>
           © TMDB, 2019—2021

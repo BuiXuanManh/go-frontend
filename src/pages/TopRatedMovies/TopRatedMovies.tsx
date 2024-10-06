@@ -1,11 +1,11 @@
-import React from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
-import MovieCardRecom from 'src/components/MovieCardRecom';
-import MovieCardSearch from 'src/components/MovieCardSearch/MovieCardSearch';
-import MovieCardUser from 'src/components/MovieCardUser';
+// import MovieCardRecom from 'src/components/MovieCardRecom';
+// import MovieCardSearch from 'src/components/MovieCardSearch/MovieCardSearch';
+// import MovieCardUser from 'src/components/MovieCardUser';
 import { getTopRatedMovies } from 'src/helpers/api';
-import { buildImageUrl, formatDateToDDMMYYYY, getColor } from 'src/helpers/utils';
+import { buildImageUrl, getColor } from 'src/helpers/utils';
 
 interface MovieCardTopRatedProps {
   movieId: number;
@@ -53,7 +53,7 @@ function TopRatedMovies() {
         {isLoading ? (
           <p>Loading...</p>
         ) : (
-          data?.map(movie => (
+          data?.map((movie: any) => (
             <MovieCardTopRated
               key={movie.id}
               movieId={movie.id}

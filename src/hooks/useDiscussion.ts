@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useMutation } from 'react-query';
 import { createMovieDiscussion } from 'src/helpers/api';
 import useUser from './useUser';

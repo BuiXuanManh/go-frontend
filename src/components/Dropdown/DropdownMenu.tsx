@@ -5,7 +5,7 @@ interface DropdownMenuProps {
   children: ReactNode[];
 }
 
-const DropdownMenu: React.FC<DropdownMenuProps> = ({ button, children }) => {
+const DropdownMenu: React.FC<DropdownMenuProps> = () => {
   return <div className='dropdown-menu'></div>;
 };
 

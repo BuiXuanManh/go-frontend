@@ -1,7 +1,8 @@
+/* eslint-disable import/named */
 import React from 'react';
 import { AxisOptions, Chart } from 'react-charts';
-import { useQueries, useQuery } from 'react-query';
-import { getMovieDetail, getUserReview } from 'src/helpers/api';
+import { useQuery } from 'react-query';
+import { getUserReview } from 'src/helpers/api';
 
 export type RatingData = {
   rate: string;
@@ -76,14 +77,14 @@ const UserOverview: React.FC<UserOverviewProps> = props => {
       data: countRatings(props.ratingData ?? [])
     }
   ];
-  const movieQueries = useQueries(
-    props.favourites.map(movieId => {
-      return {
-        queryKey: ['movie', movieId],
-        queryFn: () => getMovieDetail(movieId.toString())
-      };
-    })
-  );
+  // const movieQueries = useQueries(
+  //   props.favourites.map(movieId => {
+  //     return {
+  //       queryKey: ['movie', movieId],
+  //       queryFn: () => getMovieDetail(movieId.toString())
+  //     };
+  //   })
+  // );
 
   const { data: reviewData } = useQuery(
     ['userReview', props.userId],
@@ -93,7 +94,7 @@ const UserOverview: React.FC<UserOverviewProps> = props => {
     }
   );
 
-  const isLoading = movieQueries.some(result => result.isLoading);
+  // const isLoading = movieQueries.some(result => result.isLoading);
 
   return (
     // JSX code for rendering the component

@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import LoadingIndicator from '../LoadingIndicator';
 import { getLeaderboard } from 'src/helpers/api';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
-import { buildImageUrl } from 'src/helpers/utils';
+// import { buildImageUrl } from 'src/helpers/utils';
 
 function Leaderboard() {
   const { data: leaderBoardData, isLoading: isLeaderBoardLoading } = useQuery(
@@ -11,7 +12,8 @@ function Leaderboard() {
     {
       select(data) {
         if (!data) return data;
-        const maxMoviesRated = Math.max(...data.map((user: any) => user.movies_rated));
+        const movieRated = data?.map((user: any) => user?.movies_rated);
+        const maxMoviesRated = Math.max(movieRated);
         const updatedData = data?.map((user: any) => ({
           ...user,
           percentage: (user.movies_rated / maxMoviesRated) * 100

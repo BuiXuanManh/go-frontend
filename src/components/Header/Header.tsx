@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Tooltip } from 'react-tooltip';
-import logo from 'src/assets/images/Logo.png';
 import useUser from 'src/hooks/useUser';
 import useUserId from 'src/hooks/useUserId';
 
@@ -36,7 +35,7 @@ export default function Header(props: HeaderProps) {
     <header className='py-2 fixed top-0 left-0 w-full bg-background border-b-1 border-border z-50'>
       <div className='flex items-center h-12'>
         <a href='/'>
-          <img className='ml-8 w-24 h-4' src={logo} alt='Logo'></img>
+          <img className='ml-8 w-24 h-4' src={'/src/assets/images/Logo.png'} alt='Logo'></img>
         </a>
         <nav>
           <ul className=' text-white hidden lg:flex lg:space-x-14 md:ml-8 md:transform-none xl:ml-16 w-auto'>

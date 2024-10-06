@@ -23,11 +23,11 @@ function DiscussionDetails() {
     data: discussion,
     isLoading,
     refetch
-  } = useQuery(['discussion', discussion_id], () => getDiscussion(discussion_id));
-  const { data: movie, isLoading: isMovieLoading } = useMovieDetail(id);
+  } = useQuery(['discussion', discussion_id], () => getDiscussion(discussion_id || ''));
+  const { data: movie, isLoading: isMovieLoading } = useMovieDetail(id || '');
   const { mutate: addDiscussionPart, isLoading: isAddDiscussion } = useDiscussionPart(
-    userId,
-    discussion_id,
+    userId || 0,
+    discussion_id || '',
     () => {
       setValue('');
       setIsOpen(false);

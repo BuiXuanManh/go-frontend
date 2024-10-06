@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
 import { useQueries } from 'react-query';
 import LoadingIndicator from 'src/components/LoadingIndicator';
-import MovieCardSearch from 'src/components/MovieCardSearch/MovieCardSearch';
+// import MovieCardSearch from 'src/components/MovieCardSearch/MovieCardSearch';
 import MovieCardUser from 'src/components/MovieCardUser';
 import { getMovieDetail } from 'src/helpers/api';
 import { buildImageUrl, formatDateToDDMMYYYY, mapJsonToMovie } from 'src/helpers/utils';
@@ -65,7 +66,7 @@ const MovieList: React.FC<MovieListProps> = ({
                 overview={movie.overview}
                 avgRating={movie.rating}
                 canRemove={canRemove}
-                removeFrom={id}
+                removeFrom={'null'}
               />
             );
           })}

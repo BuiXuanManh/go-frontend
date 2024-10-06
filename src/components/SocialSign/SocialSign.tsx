@@ -1,4 +1,3 @@
-import React from 'react';
 import './SocialSign.css';
 
 export default function SocialSign() {

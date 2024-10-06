@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Navigate, Outlet, type RouteObject, useRoutes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import Login from './pages/Login';
@@ -22,7 +23,7 @@ import EditProfile from './pages/EditProfile/EditProfile';
 import MainLayout from './layouts/MainLayout';
 import ChangePass from './pages/EditProfile/ChangePass';
 import useUserId from './hooks/useUserId';
-import BreadCrumbsMovie from './components/BreadCrumbs/BreadCrumbsMovie';
+// import BreadCrumbsMovie from './components/BreadCrumbs/BreadCrumbsMovie';
 
 function ProtectedRoute() {
   const { hasLogin } = useUserId();

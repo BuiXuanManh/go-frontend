@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useMutation } from 'react-query';
 import { updateUserProfile } from 'src/helpers/api';
 import useUser from './useUser';
@@ -40,7 +41,7 @@ const useFavorite = (userId: number | undefined, favoriteId: number, onSuccess?:
         ? {
             ...user,
             favorite_list: user.favorite_list.includes(favoriteId)
-              ? user.favorite_list.filter(id => id !== favoriteId)
+              ? user.favorite_list.filter((id: any) => id !== favoriteId)
               : [...user.favorite_list, favoriteId]
           }
         : null;

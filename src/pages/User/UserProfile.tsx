@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
@@ -32,7 +34,7 @@ const UserProfile = () => {
 
   const [selectedIndex, setSelectedIndex] = useState(getSelectedIndex());
 
-  const { data: userProfileData, isLoading } = useUser(parseInt(id));
+  const { data: userProfileData, isLoading } = useUser(parseInt(id || '0'));
 
   const [avarageRating, setAvarageRating] = useState<number | undefined>(undefined);
 
@@ -44,7 +46,7 @@ const UserProfile = () => {
     id: id ?? '',
     onSuccess: data => {
       let totalRating = 0;
-      data.forEach(element => {
+      data.forEach((element: any) => {
         totalRating += element.rating;
       });
       console.log('totalRating', totalRating);
@@ -112,7 +114,11 @@ const UserProfile = () => {
             )}
           </TabList>
           <TabPanel>
-            <UserOverview userId={id} ratingData={ratingData} favourites={[233, 3, 5, 6, 11]} />
+            <UserOverview
+              userId={id ? id : ''}
+              ratingData={ratingData}
+              favourites={[233, 3, 5, 6, 11]}
+            />
             {userId === parseInt(id || '0') && (
               <MovieList
                 title={'My Favorite List'}
@@ -130,7 +136,7 @@ const UserProfile = () => {
               favoriteList={userProfileData.favorite_list}
             ></UserRatingPanel>
             <MovieList
-              movieIds={ratingData?.map(rating => parseInt(rating.movie_id)) ?? []}
+              movieIds={ratingData?.map((rating: any) => parseInt(rating.movie_id)) ?? []}
               nullListMessage={`You haven't rate any movie yet`}
               title='My Ratings'
               id='rating-list'

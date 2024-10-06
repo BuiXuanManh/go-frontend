@@ -1,3 +1,4 @@
+import { Image } from 'antd';
 import { Link } from 'react-router-dom';
 import { getColor } from 'src/helpers/utils';
 
@@ -17,7 +18,13 @@ export default function MovieCard(props: MovieCardProps) {
     <div className={`flex ${className} w-[14.5rem]`}>
       <div>
         <div className='flex relative group/play before:absolute before:bg-black/[0.35] before:inset-0 before:z-0 before:opacity-0 before:transition-opacity before:duration-500 before:pointer-events-none before:hover:opacity-100'>
-          <img className='w-[14.5rem] h-[21.5rem] rounded-lg' src={posterUrl} alt={movieName} />
+          <Image
+            className='w-[14.5rem] h-[21.5rem] rounded-lg'
+            width={'14.5rem'}
+            height={'21.5rem'}
+            src={posterUrl}
+            alt={movieName}
+          />
           <Link
             className='absolute flex justify-center items-center w-14 h-14 bg-white rounded-full top-1/2 left-1/2 z-30 text-primary outline transition duration-500 transform scale-90 opacity-0 outline-6 -m-7 outline-white/[0.3] group-hover/play:opacity-100 hover:outline-primary/[0.4]'
             to={`/details/${id}`}

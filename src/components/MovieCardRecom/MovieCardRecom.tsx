@@ -16,7 +16,7 @@ const MovieCardRecom: React.FC<MovieCardRecomProps> = ({ posterUrl, rating, titl
       </Link>
       <div className='flex'>
         <h2>{title}</h2>
-        <p className='ml-auto'> {rating * 10}%</p>
+        <p className='ml-auto'> {rating || 0 * 10}%</p>
       </div>
     </div>
   );

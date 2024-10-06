@@ -1,15 +1,19 @@
-import React from 'react';
-import { buildImageUrl } from 'src/helpers/utils';
+// import React from 'react';
+// import { buildImageUrl } from 'src/helpers/utils';
 
-interface CastCardProps {
+const CastCard = ({
+  imageUrl,
+  name,
+  character,
+  profilePath,
+  gender
+}: {
   imageUrl: string;
   name: string;
   character: string;
   profilePath: string;
   gender: boolean;
-}
-
-const CastCard: React.FC<CastCardProps> = ({ imageUrl, name, character, profilePath, gender }) => {
+}) => {
   return (
     <div className='hover:shadow-gray-800/70 hover:shadow-lg shadow-none transition border-border rounded-lg border-1 h-72 w-[8rem] bg-textbox overflow-clip'>
       <a href={profilePath} target='_blank' rel='noreferrer'>

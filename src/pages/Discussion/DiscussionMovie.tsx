@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { useQuery } from 'react-query';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import BreadCrumbs from 'src/components/BreadCrumbs/BreadCrumbs';
 import LoadingIndicator from 'src/components/LoadingIndicator';
 import Table from 'src/components/Table/Table';
@@ -16,52 +17,54 @@ const DiscussionMovie: React.FC = () => {
     { title: 'Replies', dataIndex: 'replies' },
     { title: 'Last Reply', dataIndex: 'last_reply' }
   ];
-  const { data: movie, isLoading: isMovieLoading } = useMovieDetail(id);
+  const { data: movie, isLoading: isMovieLoading } = useMovieDetail(id || '');
 
-  const navigate = useNavigate();
-
-  const { data, isLoading } = useQuery(['movieDiscussion', id], () => getMovieDiscussion(id), {
-    enabled: !!id,
-    retry: false,
-    staleTime: 0,
-    select: data => {
-      console.log(data);
-      return data?.map((discussion: any) => {
-        return {
-          _id: discussion._id,
-          subject: (
-            <div className='flex items-center'>
-              <Link to={`/u/${discussion.discussion_part[0].user_id}`}>
-                <img
-                  className='w-10 h-10 mr-4 rounded-full'
-                  src={discussion.discussion_part[0].profile_path}
-                  alt='user profile'
-                />
-              </Link>
-              <Link
-                className='hover:text-white/70'
-                to={`/details/${discussion.movie_id}/discussions/${discussion._id}`}
-              >
-                {discussion.subject}
-              </Link>
-            </div>
-          ),
-          status: discussion.status ? 'Open' : 'Closed',
-          replies: discussion.discussion_part.length - 1,
-          last_reply: (
-            <div>
-              <p>
-                {new Date(
-                  discussion.discussion_part[discussion.discussion_part.length - 1].timestamp
-                ).toLocaleString('en-US', options)}
-              </p>
-              <p>by {discussion.discussion_part[discussion.discussion_part.length - 1].name}</p>
-            </div>
-          )
-        };
-      });
+  const { data, isLoading } = useQuery(
+    ['movieDiscussion', id],
+    () => getMovieDiscussion(id || ''),
+    {
+      enabled: !!id,
+      retry: false,
+      staleTime: 0,
+      select: data => {
+        console.log(data);
+        return data?.map((discussion: any) => {
+          return {
+            _id: discussion._id,
+            subject: (
+              <div className='flex items-center'>
+                <Link to={`/u/${discussion.discussion_part[0].user_id}`}>
+                  <img
+                    className='w-10 h-10 mr-4 rounded-full'
+                    src={discussion.discussion_part[0].profile_path}
+                    alt='user profile'
+                  />
+                </Link>
+                <Link
+                  className='hover:text-white/70'
+                  to={`/details/${discussion.movie_id}/discussions/${discussion._id}`}
+                >
+                  {discussion.subject}
+                </Link>
+              </div>
+            ),
+            status: discussion.status ? 'Open' : 'Closed',
+            replies: discussion.discussion_part.length - 1,
+            last_reply: (
+              <div>
+                <p>
+                  {new Date(
+                    discussion.discussion_part[discussion.discussion_part.length - 1].timestamp
+                  ).toLocaleString('en-US', options)}
+                </p>
+                <p>by {discussion.discussion_part[discussion.discussion_part.length - 1].name}</p>
+              </div>
+            )
+          };
+        });
+      }
     }
-  });
+  );
   if (isLoading) return <LoadingIndicator />;
 
   return (
