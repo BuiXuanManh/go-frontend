@@ -32,7 +32,7 @@ function MovieCardList({ page, setPage }: MovieCardListProps) {
       <h2 id='movie_list' className='text-2xl font-semibold scroll-m-20'>
         Movie List
       </h2>
-      <div className='grid grid-cols-5 gap-4 mt-4'>
+      <div className='grid grid-cols-6 gap-4 mt-4'>
         {movieListData?.movies.map((movie: any) => {
           return (
             <MovieCard
@@ -52,7 +52,7 @@ function MovieCardList({ page, setPage }: MovieCardListProps) {
         breakLabel='...'
         nextLabel='Next >'
         onPageChange={handlePageClick}
-        pageRangeDisplayed={5}
+        // pageRangeDisplayed={5}
         initialPage={page - 1}
         pageCount={movieListData?.total_page}
         disableInitialCallback={true}

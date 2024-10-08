@@ -93,7 +93,7 @@ const UserRatingPanel = ({ ratingData }: UserRatingPanelProps) => {
 
   return (
     <div className='mt-3'>
-      {ratingData && (
+      {/* {ratingData && (
         <>
           <h2 className='text-2xl font-bold'>Rating By Year</h2>
           <div className='w-full h-24'>
@@ -107,7 +107,7 @@ const UserRatingPanel = ({ ratingData }: UserRatingPanelProps) => {
             />
           </div>
         </>
-      )}
+      )} */}
     </div>
   );
 };

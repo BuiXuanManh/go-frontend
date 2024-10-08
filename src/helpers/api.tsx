@@ -105,9 +105,9 @@ export const getLeaderboard = async () => {
   const response = await instance.get(`/leaderboard/get`);
   return response.data;
 };
-export const createLeaderBoard = async (movie_id:number, user_id:number, rate:number) => {
-  console.log({movie_id, user_id, rate});
-  const { data } = await authInstance.post(`/leaderboard/create/${movie_id}/${user_id}/${rate}`);
+export const createLeaderBoard = async (user_id:number) => {
+  const { data } = await authInstance.post(`/leaderboard/create/${user_id}`);
+  console.log("leaderboard",data);
   return data;
 };
 export const getMovieCast = async (movieId: string) => {

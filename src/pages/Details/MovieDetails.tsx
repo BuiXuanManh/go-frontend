@@ -63,7 +63,7 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ movie, hasLogin, userId }) 
     }
   });
 
-  const {mutate: createLeaderBoard} = useLeaderBoard(movie?.id||0,userId);
+  const {mutate: createLeaderBoard} = useLeaderBoard(userId);
   
   const { mutate: deleteRating } = useMutation(deleteMovieRating, {
     onSuccess: () => {
@@ -105,10 +105,10 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ movie, hasLogin, userId }) 
     setRating(rate);
     if (hasRated === true) {
       updateRating({ user_id: userId, movie_id: movie?.id||0, rating: rate });
-      createLeaderBoard(rate);
+      createLeaderBoard();
     } else {
       createRating({ user_id: userId, movie_id: movie?.id||0, rating: rate });
-      createLeaderBoard(rate);
+      createLeaderBoard();
     }
   };
   const handleDeleteRating = () => {
