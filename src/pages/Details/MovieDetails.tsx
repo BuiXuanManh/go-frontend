@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react';
 import { useMutation } from 'react-query';
-import { Rating } from 'react-simple-star-rating';
+// import { Rating } from 'react-simple-star-rating';
 import { toast } from 'react-toastify';
 import { Tooltip } from 'react-tooltip';
 import RatingStar from 'src/components/RatingStar';
@@ -16,7 +17,9 @@ import { updateMovieRating, deleteMovieRating, getMovieRatingByUser } from 'src/
 import { buildImageUrl, formatDateToDDMMYYYY, getColor } from 'src/helpers/utils';
 import useCrew from 'src/hooks/useCrew';
 import useFavorite from 'src/hooks/useFavorite';
+import useLeaderBoard from 'src/hooks/useLeaderBoard';
 import useRating from 'src/hooks/useRating';
+import useUpdateAvgRating from 'src/hooks/useUpdateAvgRating';
 import useUser from 'src/hooks/useUser';
 import useWatchList from 'src/hooks/useWatchList';
 import Movie from 'src/types/Movie';
@@ -33,11 +36,12 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ movie, hasLogin, userId }) 
   const [hasRated, setHasRated] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
   const [isWatchList, setIsWatchList] = useState(false);
-  const handleGetUserSuccess = data => {
+  const handleGetUserSuccess = (data:any) => {
     data.favorite_list.includes(movie?.id) && setIsFavorite(true);
     data.watch_list.includes(movie?.id) && setIsWatchList(true);
   };
   const handleCreateRatingSuccess = () => {
+    updateAvgRating();
     setHasRated(true);
   };
   const handleAddFavoriteSuccess = () => {
@@ -46,16 +50,21 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ movie, hasLogin, userId }) 
   const handleAddWatchListSuccess = () => {
     setIsWatchList(!isWatchList);
   };
-  const userQuery = useUser(userId, handleGetUserSuccess);
+  useUser(userId, handleGetUserSuccess);
+  const {mutate: updateAvgRating} = useUpdateAvgRating(movie?.id||0);
   const { createRating } = useRating(handleCreateRatingSuccess);
   const { mutate: updateRating } = useMutation(updateMovieRating, {
     onSuccess: () => {
+      updateAvgRating();
       toast.success(RATING_UPDATED);
     },
     onError: () => {
       toast.error(SERVER_UNAVAILABLE);
     }
   });
+
+  const {mutate: createLeaderBoard} = useLeaderBoard(movie?.id||0,userId);
+  
   const { mutate: deleteRating } = useMutation(deleteMovieRating, {
     onSuccess: () => {
       toast.success(RATING_REMOVED);
@@ -67,12 +76,12 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ movie, hasLogin, userId }) 
   const { data: crews } = useCrew(movie?.id.toString() || '');
   const { mutate: toggleFavorite } = useFavorite(
     userId,
-    movie?.id || null,
+    movie?.id || 0,
     handleAddFavoriteSuccess
   );
   const { mutate: toggleWatchList } = useWatchList(
     userId,
-    movie?.id || null,
+    movie?.id || 0,
     handleAddWatchListSuccess
   );
   useEffect(() => {
@@ -95,15 +104,17 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ movie, hasLogin, userId }) 
   const handleRating = (rate: number) => {
     setRating(rate);
     if (hasRated === true) {
-      updateRating({ user_id: userId, movie_id: movie?.id, rating: rate });
+      updateRating({ user_id: userId, movie_id: movie?.id||0, rating: rate });
+      createLeaderBoard(rate);
     } else {
-      createRating({ user_id: userId, movie_id: movie?.id, rating: rate });
+      createRating({ user_id: userId, movie_id: movie?.id||0, rating: rate });
+      createLeaderBoard(rate);
     }
   };
   const handleDeleteRating = () => {
     setRating(0);
     setHasRated(false);
-    deleteRating({ userId: userId, movieId: movie?.id.toString() });
+    deleteRating({ userId: userId, movieId: movie?.id.toString()||"" });
   };
 
   if (!movie) {
@@ -285,7 +296,7 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ movie, hasLogin, userId }) 
             <h3 className='font-bold text-xl'>Overview</h3>
             <p className=''>{movie?.overview}</p>
             <ol className='flex md:space-x-16 lg:space-x-20 xl:space-x-44 mt-4'>
-              {crews?.splice(0, 3).map((crew, index) => (
+              {crews?.splice(0, 3).map((crew:any, index:any) => (
                 <li key={index}>
                   <p className='font-bold'>{crew.name}</p>
                   <p className='text-sm'>{crew.job}</p>

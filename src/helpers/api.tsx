@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable import/named */
 import axios from 'axios';
 import Rating from 'src/types/Rating';
@@ -86,8 +87,8 @@ export const login = async (Username: string, Password: string) => {
 export const logout = () => clearAuthTokens();
 
 export const getMoviesByPage = async (page: number) => {
-  const response = await instance.get(`/movie/get/page/${page}`);
-  return response.data;
+  const {data} = await instance.get(`/movie/get/page/${page}`);
+  return data;
 };
 
 export const getTopRatedMovies = async () => {
@@ -95,11 +96,20 @@ export const getTopRatedMovies = async () => {
   return response.data;
 };
 
+export const updateAvgRating = async (movie_id: number) => {
+  const { data } = await authInstance.post(`/topMovies/create/${movie_id}`);
+  return data;
+}
+
 export const getLeaderboard = async () => {
   const response = await instance.get(`/leaderboard/get`);
   return response.data;
 };
-
+export const createLeaderBoard = async (movie_id:number, user_id:number, rate:number) => {
+  console.log({movie_id, user_id, rate});
+  const { data } = await authInstance.post(`/leaderboard/create/${movie_id}/${user_id}/${rate}`);
+  return data;
+};
 export const getMovieCast = async (movieId: string) => {
   const { data } = await instance.get(`/cast/get/${movieId}`);
   return data;
@@ -195,6 +205,7 @@ export const createMovieRating = async (rating: Rating) => {
   });
   return data;
 };
+
 
 export const createMovieReview = async (review: Review) => {
   const { data } = await authInstance.post(`userReview/create`, review);

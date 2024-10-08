@@ -10,6 +10,7 @@ export const INCORRECT_CREDENTIALS = 'Incorrect username or password.';
 export const SESSION_EXPIRED = 'Your session has expired. Please log in again to continue.';
 export const RATING_SUBMITTED =
   'Your rating has been successfully submitted! Thank you for sharing your feedback.';
+// export const RATING_AVG_UPDATED = 'Your rating has been updated successfully.';
 export const REVIEW_SUBMITTED =
   'Your review has been successfully submitted! We appreciate your thoughts on the movie.';
 export const RATING_UPDATED = 'Your rating has been updated successfully.';

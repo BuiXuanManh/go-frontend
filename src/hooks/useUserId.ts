@@ -13,8 +13,8 @@ const useUserId = () => {
         if (tmp) {
           setHasLogin(tmp);
           const accessToken = await getAccessToken();
-          const decodedToken = jwtDecode(accessToken);
-          setUserId(decodedToken.userId);
+          const decodedToken = jwtDecode(accessToken||"");
+          setUserId(decodedToken?.userId);
         }
       } catch (error) {
         console.error('Error fetching data:', error);

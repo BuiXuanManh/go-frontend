@@ -1,3 +1,5 @@
+/* eslint-disable import/named */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { AxisOptions, Chart } from 'react-charts';
 import { useQuery } from 'react-query';

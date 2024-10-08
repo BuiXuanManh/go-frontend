@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useMutation } from 'react-query';
 import { toast } from 'react-toastify';
 import { RATING_SUBMITTED, SERVER_UNAVAILABLE } from 'src/constant/error';
@@ -8,7 +9,7 @@ const useRating = (onSuccess?: () => void) => {
   const createRating = async (rating: Rating) => {
     return await createMovieRating(rating);
   };
-
+ 
   const { mutate, isLoading, isError, isSuccess } = useMutation(createRating, {
     onSuccess: () => {
       onSuccess && onSuccess();

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useMutation } from 'react-query';
 import useUser from './useUser';
 import { createMovieReview } from 'src/helpers/api';
@@ -12,7 +13,7 @@ const useUserReview = (userId: number | undefined, movieId: number, onSuccess?: 
       onSuccess && onSuccess();
       toast.success(REVIEW_SUBMITTED);
     },
-    onError: error => {
+    onError: (error:any) => {
       if (error.response.status === 502) {
         toast.error('User can only submit one review per movie');
       } else toast.error(SERVER_UNAVAILABLE);
@@ -24,7 +25,7 @@ const useUserReview = (userId: number | undefined, movieId: number, onSuccess?: 
       // Wait for the user profile to be fetched
       const review: Review = {
         movie_id: movieId,
-        user_id: userId,
+        user_id: userId||0,
         comment: comment,
         username: user?.username,
         picture_profile: user?.picture_profile
