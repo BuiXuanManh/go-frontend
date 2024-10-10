@@ -34,8 +34,9 @@ export default function Header(props: HeaderProps) {
   return (
     <header className='py-2 fixed top-0 left-0 w-full bg-background border-b-1 border-border z-50'>
       <div className='flex items-center h-12'>
-        <a href='/'>
-          <img className='ml-8 w-24 h-4' src={'/src/assets/images/Logo.png'} alt='Logo'></img>
+        <a className='flex justify-center' href='/'>
+          <img className='ml-10 w-10 h-10' src={'/src/assets/images/Logo.jpg'} alt='Logo' />
+          <div className='mt-2 ml-1'>MOVIES</div>
         </a>
         <nav>
           <ul className=' text-white hidden lg:flex lg:space-x-14 md:ml-8 md:transform-none xl:ml-16 w-auto'>

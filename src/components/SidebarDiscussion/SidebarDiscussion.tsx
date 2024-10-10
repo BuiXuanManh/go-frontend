@@ -12,7 +12,7 @@ interface SidebarDiscussionProps {
 
 function SidebarDiscussion({
   previousPageUrl = '/',
-  previousPageTitle = 'Back to TMDB',
+  previousPageTitle = 'Back to VMovies',
   className = 'w-60 min-h-screen bg-[#02121E] flex flex-col items-end',
   onNewDiscussion,
   isOnMoviePage,
@@ -23,7 +23,7 @@ function SidebarDiscussion({
   return (
     <div className={className}>
       <Link to='/' className='w-1/2 h-20 mt-10 mr-10'>
-        <img src='/src/assets/images/sidebarIcon.svg' alt='logo' />
+        <img src='/src/assets/images/Logo.jpg' alt='logo' />
       </Link>
       <Link to={previousPageUrl} className=' mt-10  mr-10 hover:text-white/60 '>
         &larr; {previousPageTitle}

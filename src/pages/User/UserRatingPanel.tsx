@@ -1,6 +1,6 @@
 /* eslint-disable import/named */
 import React from 'react';
-import { AxisOptions, Chart } from 'react-charts';
+// import { AxisOptions } from 'react-charts';
 // import { useQueries } from 'react-query';
 // import { getMovieDetail } from 'src/helpers/api';
 // import MovieList from './MovieList';
@@ -50,25 +50,25 @@ function countRatings(ratings: RatingRawData[]): RatingData[] {
 }
 
 const UserRatingPanel = ({ ratingData }: UserRatingPanelProps) => {
-  const primaryAxis = React.useMemo(
-    (): AxisOptions<RatingData> => ({
-      position: 'bottom',
-      getValue: datum => datum.year,
-      shouldNice: true
-    }),
-    []
-  );
+  // const primaryAxis = React.useMemo(
+  //   (): AxisOptions<RatingData> => ({
+  //     position: 'bottom',
+  //     getValue: datum => datum.year,
+  //     shouldNice: true
+  //   }),
+  //   []
+  // );
 
-  const secondaryAxes = React.useMemo(
-    (): AxisOptions<RatingData>[] => [
-      {
-        getValue: datum => datum.rateCount,
-        elementType: 'area',
-        shouldNice: false
-      }
-    ],
-    []
-  );
+  // const secondaryAxes = React.useMemo(
+  //   (): AxisOptions<RatingData>[] => [
+  //     {
+  //       getValue: datum => datum.rateCount,
+  //       elementType: 'area',
+  //       shouldNice: false
+  //     }
+  //   ],
+  //   []
+  // );
   const data: Series[] = [
     {
       label: 'Ratings',
