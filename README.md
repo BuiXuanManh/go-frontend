@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/fc6a910f-b168-44b1-ac9c-c02fbf3e794b)# Frontend of movies project use React + TypeScript + Vite + Taiwindcss
+# Frontend of movies project use React + TypeScript + Vite + Taiwindcss
 - Home Page 
 <br>
 <img src="https://github.com/user-attachments/assets/5605da0b-b1ad-416a-a17d-6c0156f3457b"/>
